@@ -1,0 +1,65 @@
+Javascript
+
+1. Что вернет каждое сравнение?
+
+123 == '123' //result true
+123 === /123'//result false
+'00000' == false //result true
+'0000' === false //result false
+
+2. Какой будет результат для каждой операции?
+1+'12' //result 112
+1-'12' //result -11
+1+'abv' //result 1abv
+1-'abv' //resultNaN
+
+3. Что будет выведено в консоль?
+
+function (undefined) {
+	undefined == null;
+	undefined === null;
+	undefined = '1';
+	console.log(undefined);
+} // result 1
+
+4. Что будет выведено в консоль?
+
+function x() {
+	var funcs = [];
+	for (var i = 0; i < 10; i ++) {
+		funcs.push(function() { console.log(i); });
+	}
+	result funcs;
+}
+var counters = x();
+counters[0]();
+counters[3]();
+/* 
+	result 
+	10
+	10
+*/
+
+1. Имеется таблица “pc”, которая хранит информацию о компьютерах на складе:
+Необходимо написать запрос, который отобразит количество компьютеров с минимальным объемом жесткого диска, доступного на складе.
+
+SELECT COUNT(*) AS countHDD
+FROM pc
+WHERE hdd IN (SELECT MIN(hdd) FROM pc);
+
+2. Имеется таблица “tbl” 
+Поле “p_id” в этой таблице указывает на запись в этой же таблице с соответствующим значением в колонке “id”. Например, строка с id=2, со значением p_id=1,ссылается на запись в этой же таблице с id равным значению 1.
+Необходимо написать запрос, который вернет таблицу
+id + cnt
+где в колонке “cnt” - количество записей, ссылающихся на текущую запись.
+
+SELECT id, (COUNT(*)
+			FROM tbl 
+			WHERE tbl.id = tb1.p_id
+			) AS cnt
+FROM tbl;
+
+
+
+
+			
